@@ -1,0 +1,218 @@
+
+@import "tailwindcss";
+
+:root {
+  font-family: "Trebuchet MS", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #e9d5ff;
+  color: #581c87;
+}
+
+.glass-card {
+  backdrop-filter: blur(18px);
+  animation: cardEnter 0.8s ease both;
+}
+
+.float-animation {
+  animation: floating 3s ease-in-out infinite;
+}
+
+.float-delay {
+  animation: floating 3.5s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+.letter-reveal {
+  animation: reveal 0.9s ease both;
+}
+
+.girl-photo {
+  animation: photoGlow 5s ease-in-out infinite alternate;
+}
+
+.cake-bounce {
+  animation: cakeBounce 2s ease-in-out infinite;
+}
+
+#giftMessage {
+  animation: reveal 0.6s ease both;
+}
+
+#hearts {
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(5deg);
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cakeBounce {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(3deg);
+  }
+}
+
+@keyframes photoGlow {
+  from {
+    filter: saturate(0.95);
+  }
+  to {
+    filter: saturate(1.12);
+  }
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Dreamy lavender birthday effects */
+
+.birthday-page,
+#birthdayScreen {
+  background:
+    radial-gradient(ellipse at 10% 10%, #eadbff 0%, transparent 35%),
+    radial-gradient(ellipse at 90% 25%, #f8d9ef 0%, transparent 30%),
+    linear-gradient(145deg, #faf5ff, #eee2ff, #fff0f8);
+  background-size: 180% 180%;
+  animation: lavenderDream 12s ease-in-out infinite alternate;
+}
+
+.floating-particle {
+  position: absolute;
+  bottom: -45px;
+  opacity: 0;
+  color: #b58adf;
+  animation: floatUp var(--duration) linear forwards;
+  filter: drop-shadow(0 0 8px #d8b4fe);
+  will-change: transform, opacity;
+}
+
+.glass-card {
+  box-shadow:
+    0 25px 80px #9d7acb35,
+    0 0 30px #e9d5ff70;
+}
+
+.girl-photo {
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+.girl-photo:hover {
+  transform: scale(1.04);
+  filter: saturate(1.15) brightness(1.04);
+}
+
+#musicButton {
+  animation: musicGlow 3s ease-in-out infinite;
+}
+
+@keyframes lavenderDream {
+  from {
+    background-position: 0% 20%;
+  }
+  to {
+    background-position: 100% 80%;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(.7);
+    opacity: 0;
+  }
+  15% {
+    opacity: .8;
+  }
+  80% {
+    opacity: .7;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(35deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes musicGlow {
+  0%, 100% {
+    box-shadow: 0 5px 20px #a78bfa35;
+  }
+  50% {
+    box-shadow: 0 5px 30px #c084fc80;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .birthday-page,
+  #birthdayScreen,
+  #musicButton,
+  .floating-particle {
+    animation-duration: 0.01ms !important;
+  }
+}
