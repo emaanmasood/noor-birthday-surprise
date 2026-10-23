@@ -74,9 +74,12 @@ document.querySelector('#app').innerHTML = `
   <span id="musicLabel">Play Birthday Music</span>
 </button>
 
-<audio id="birthdayMusic" loop preload="none">
-  <source src="/birthday-music.mp3" type="audio/mpeg">
-</audio>
+<audio
+  id="birthdayMusic"
+  src="${import.meta.env.BASE_URL}birthday-music.mp3"
+  loop
+  preload="auto"
+></audio>
 
 
       <div class="pointer-events-none absolute left-[5%] top-24 text-4xl float-animation">♡</div>
@@ -243,6 +246,8 @@ document.querySelector('#giftButton').addEventListener('click', () => {
 
 
 const music = document.querySelector('#birthdayMusic')
+music.volume = 1
+music.muted = false
 const musicButton = document.querySelector('#musicButton')
 const musicIcon = document.querySelector('#musicIcon')
 const musicLabel = document.querySelector('#musicLabel')
